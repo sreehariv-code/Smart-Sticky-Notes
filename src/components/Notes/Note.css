@@ -1,0 +1,4 @@
+textarea {
+  scrollbar-color: rgba(0, 0, 0, 0.4) rgba(0, 0, 0, 0.1);
+  scrollbar-width: thin;
+}

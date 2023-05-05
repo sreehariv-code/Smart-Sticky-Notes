@@ -1,0 +1,30 @@
+.color-list {
+  opacity: 0;
+  pointer-events: none;
+  transition: width 5s ease-out;
+  isolation: isolate;
+}
+
+.add-new-note-btn {
+  z-index: 1;
+  background-color: #fff;
+  border: none;
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 16px;
+}
+
+.add-new-note-btn.active + .color-list {
+  opacity: 1;
+  transition: width 5s ease-in;
+  pointer-events: visible;
+}
+
+.color-list li {
+  transform: translateY(30px);
+  transition: transform 0.5s ease-in;
+}
+
+.add-new-note-btn.active + .color-list li {
+  transform: translateY(0);
+
+  transition: transform 0.5s ease-out;
+}

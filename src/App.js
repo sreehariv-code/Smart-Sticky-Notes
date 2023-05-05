@@ -1,23 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import { Route, Routes, Outlet } from "react-router-dom";
+import "./App.css";
+import Navbar from "./components/Navbar/Navbar";
+
+import NoteContainer from "./pages/NoteContainer/NoteContainer";
+import SingleGroup from "./pages/SingleGroupPage/SingleGroup";
 
 function App() {
+  const NavbarLayout = () => {
+    return (
+      <>
+        <Navbar />
+        <Outlet />
+      </>
+    );
+  };
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Routes>
+        <Route element={<NavbarLayout />}>
+          <Route element={<NoteContainer />} path="/" />
+        </Route>
+        <Route element={<SingleGroup />} path="/:id" />
+      </Routes>
     </div>
   );
 }
