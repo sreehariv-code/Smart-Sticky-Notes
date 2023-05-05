@@ -142,6 +142,12 @@ const DataProvider = ({ children }) => {
     }
   };
 
+  const deleteGroup = (groupId) => {
+    const updatedGroupList =
+      groupList.length > 0 && groupList.filter((group) => group.id !== groupId);
+    setGroupList(updatedGroupList);
+  };
+
   //To move notes between groups
   function moveNoteToGroup(currentGroupId, destinationGroupId, noteId) {
     // Find the current and destination groups in the groupList
@@ -181,8 +187,9 @@ const DataProvider = ({ children }) => {
         addNewGroup,
         moveNoteToGroup,
         updateGroupTitle,
-        // addLinkHandler,
+        deleteGroup,
         deleteNote,
+        // addLinkHandler,
         // filteredNotes,
         updateText,
         addNote,

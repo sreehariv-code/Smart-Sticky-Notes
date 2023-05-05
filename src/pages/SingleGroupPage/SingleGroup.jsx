@@ -3,8 +3,8 @@ import { DataContext } from "../../context/DataContext";
 import { Navigate, useParams, useNavigate, Link } from "react-router-dom";
 import Note from "../../components/Notes/Note";
 
-import { AiFillDelete } from "react-icons/ai";
 import { FaEdit, FaChevronLeft } from "react-icons/fa";
+import DeleteModal from "../../components/Modal/DeleteModal";
 
 const SingleGroup = () => {
   const { id } = useParams();
@@ -28,8 +28,6 @@ const SingleGroup = () => {
       <Navigate to="/" />
     );
 
-  console.log(filteredList);
-
   function handleMouseEnter(index) {
     setHoverIndex(index);
   }
@@ -39,9 +37,9 @@ const SingleGroup = () => {
   }
 
   return (
-    <div className="px-5 py-12">
+    <div className="px-5 sm:py-12">
       <div
-        className="flex items-center justify-between groupHeader sticky top-[20px] w-full "
+        className="flex min-h-[100px] flex-col sm:flex-row sm:items-center justify-between groupHeader sticky top-[20px] w-full "
         style={{
           background:
             "linear-gradient(to right,rgba(231, 230, 230,0.6),rgba(231, 230, 230,0.6))",
@@ -100,7 +98,7 @@ const SingleGroup = () => {
             >
               New Note
             </button>
-            <ul className="flex gap-2 flex-col min-w-[120px] py-3 rounded-[10px]  fixed top-[100px] bg-white color-list">
+            <ul className="flex gap-2 flex-col min-w-[120px] py-3 rounded-[10px]  absolute top-[60px] sm:top-[60px] bg-white color-list">
               {colors.map((color, index) => (
                 <li
                   key={index}
@@ -120,10 +118,19 @@ const SingleGroup = () => {
               ))}
             </ul>
           </div>
-          <div className="tooltip  tooltip-bottom" data-tip="Delete Group">
-            <button className="btn bg-[#e01b1b] outline-none border-none hover:bg-red-400">
-              <AiFillDelete className="text-[20px]" />
-            </button>
+          <div
+            className="md:tooltip  md:tooltip-bottom"
+            data-tip="Delete Group"
+          >
+            {/* <button
+                className="btn bg-[#e01b1b] outline-none border-none hover:bg-red-400"
+                onClick={() => {
+                  deleteGroup(id);
+                }}
+              >
+                <AiFillDelete className="text-[20px]" />
+              </button> */}
+            <DeleteModal groupId={id} />
           </div>
         </div>
       </div>

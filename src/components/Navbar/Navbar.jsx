@@ -24,7 +24,7 @@ const Navbar = () => {
         background:
           "linear-gradient(to right,rgba(231, 230, 230,0.6),rgba(231, 230, 230,0.6))",
       }}
-      className="flex justify-between px-16 py-11 head-section sticky top-0 "
+      className="flex flex-col sm:flex-row justify-between px-16 py-11 head-section sticky top-0 "
     >
       <h1 className="text-[30px]">Notes</h1>
       <div className="flex md:flex-row gap-5 rounded-full add-note-menu">
@@ -44,10 +44,17 @@ const Navbar = () => {
         {/* Put this part before </body> tag */}
         <input type="checkbox" id="my-modal" className="modal-toggle" />
         <div className="modal">
-          <div className="modal-box flex flex-col gap-7">
+          <div
+            onSubmit={(e) => {
+              e.preventDefault();
+              console.log(e);
+            }}
+            className="modal-box flex flex-col gap-7"
+          >
             <h3 className="font-bold text-lg">Create New Title</h3>
             <input
               type="text"
+              value={groupTitle}
               className="input input-bordered w-full"
               onChange={(e) => {
                 setGroupTitle(e.target.value);
@@ -59,7 +66,9 @@ const Navbar = () => {
                 htmlFor="my-modal"
                 className="btn"
                 onClick={() => {
+                  console.log("clicked");
                   addNewGroup(groupTitle);
+                  setGroupTitle("");
                 }}
               >
                 Create
