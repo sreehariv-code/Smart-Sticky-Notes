@@ -176,6 +176,27 @@ const DataProvider = ({ children }) => {
     console.log(groupList);
   }
 
+  //Set Random Color for folders
+  function generateHexCodeFromString(str) {
+    let hash = 0;
+
+    for (let i = 0; i < str.length; i++) {
+      let charCode = str.charCodeAt(i);
+      hash = (hash << 5) - hash + charCode;
+      hash = hash & hash;
+    }
+
+    let hexCode = (hash >>> 0).toString(16);
+
+    while (hexCode.length < 6) {
+      hexCode = "0" + hexCode;
+    }
+
+    hexCode = "#" + hexCode;
+
+    return hexCode;
+  }
+
   return (
     <DataContext.Provider
       //Methods and variables passed
@@ -189,6 +210,7 @@ const DataProvider = ({ children }) => {
         updateGroupTitle,
         deleteGroup,
         deleteNote,
+        generateHexCodeFromString,
         // addLinkHandler,
         // filteredNotes,
         updateText,
