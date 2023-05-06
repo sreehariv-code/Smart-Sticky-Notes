@@ -28,14 +28,6 @@ const Navbar = () => {
     >
       <h1 className="text-[30px]">Notes</h1>
       <div className="flex md:flex-row gap-5 rounded-full add-note-menu">
-        {/* <button
-          className={`btn btn-outline w-[120px] add-new-note-btn  `}
-          onClick={() => {
-            addNewGroup();
-          }}
-        >
-          New Group
-        </button> */}
         {/* The button to open modal */}
         <label htmlFor="my-modal" className="btn">
           New Group
@@ -90,7 +82,7 @@ const Navbar = () => {
           >
             New Note
           </button>
-          <ul className="flex gap-2 flex-col min-w-[120px] py-3 rounded-[10px]  fixed top-[100px] bg-white color-list">
+          <ul className="flex gap-2 flex-col min-w-[120px] py-3 rounded-[10px]  fixed top-[140px] sm:top-[100px] bg-white color-list">
             {colors.map((color, index) => (
               <li
                 key={index}

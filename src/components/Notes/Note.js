@@ -1,13 +1,12 @@
 import React, { useContext } from "react";
 
-import { FiPlus } from "react-icons/fi";
 import { MdOutlineDeleteForever } from "react-icons/md";
 import "./Note.css";
 import { DataContext } from "../../context/DataContext";
 
 import Modal from "../Modal/Modal";
 const Note = ({ id, text, bgcolor, groupid }) => {
-  const { deleteNote, updateText, getAllNotes } = useContext(DataContext);
+  const { deleteNote, updateText } = useContext(DataContext);
 
   const textHandler = (event) => {
     updateText(groupid, id, event.target.value);
