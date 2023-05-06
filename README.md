@@ -44,4 +44,15 @@ Start the server
 
 ## Screenshots
 
-![App Screenshot](./screenshots/demo.png)
+![App Screenshot](./screenshots/main.png)
+![App Screenshot](./screenshots/newgroup.png)
+![App Screenshot](./screenshots/afternewgroup.png)
+![App Screenshot](./screenshots/newnote.png)
+![App Screenshot](./screenshots/afternewnote.png)
+![App Screenshot](./screenshots/addlink.png)
+![App Screenshot](./screenshots/addingtofolder.png)
+![App Screenshot](./screenshots/insidethefolder.png)
+![App Screenshot](./screenshots/deletewithinfolderbefore.png)
+![App Screenshot](./screenshots/afterdeletewithinfolder.png)
+![App Screenshot](./screenshots/edittitle.png)
+![App Screenshot](./screenshots/deletefullgroup.png)

@@ -21,7 +21,9 @@ const Note = ({ id, text, bgcolor, groupid }) => {
         <Modal currentGroupId={groupid} noteId={id} />
         <button
           className="hover:bg-[rgba(255,255,255,0.6)] w-10 grid place-items-center rounded-full aspect-square"
-          onClick={() => deleteNote(groupid, id)}
+          onClick={() => {
+            deleteNote(groupid, id);
+          }}
         >
           <MdOutlineDeleteForever className="text-[20px]" />
         </button>

@@ -69,26 +69,27 @@ const DataProvider = ({ children }) => {
       }
       return group;
     });
+    console.log(updatedGroupList);
     setGroupList(updatedGroupList);
   };
 
-  //Preview the Unlinked notes
-  function getAllNotes(groupId) {
-    const group = groupList.find((group) => group.id === groupId);
+  // //Preview the Unlinked notes
+  // function getAllNotes(groupId) {
+  //   const group = groupList.find((group) => group.id === groupId);
 
-    if (!group) {
-      return [];
-    }
+  //   if (!group) {
+  //     return [];
+  //   }
 
-    if (group.group) {
-      return group.notes;
-    } else {
-      return groupList
-        .filter((group) => !group.group)
-        .map((group) => group.notes)
-        .flat();
-    }
-  }
+  //   if (group.group) {
+  //     return group.notes;
+  //   } else {
+  //     return groupList
+  //       .filter((group) => !group.group)
+  //       .map((group) => group.notes)
+  //       .flat();
+  //   }
+  // }
 
   //Update Group Title
   const updateGroupTitle = (groupId, title) => {
@@ -101,12 +102,14 @@ const DataProvider = ({ children }) => {
     setGroupList(updatedGroupList);
   };
 
-  // const deleteEmptyGroups = (processingList) => {
-  //   const updatedGroupList = processingList.filter(
-  //     (group) => group.notes.length !== 0
-  //   );
-  //   setGroupList(updatedGroupList);
-  // };
+  const removeEmptyGroups = () => {
+    console.log("Inside Function");
+    const updatedGroupList = groupList.filter((group) => {
+      return !(group.group === false && group.notes.length === 0);
+    });
+    console.log(updatedGroupList);
+    setGroupList(updatedGroupList);
+  };
 
   //Change and store the text values in notes
   const updateText = (groupId, noteId, text) => {
@@ -122,7 +125,7 @@ const DataProvider = ({ children }) => {
       }
       return group;
     });
-    console.log(updatedGroupList);
+
     setGroupList(updatedGroupList);
   };
 
@@ -204,7 +207,7 @@ const DataProvider = ({ children }) => {
         groupList,
         colors,
         hoverColors,
-        getAllNotes,
+        // getAllNotes,
         addNewGroup,
         moveNoteToGroup,
         updateGroupTitle,
@@ -216,6 +219,7 @@ const DataProvider = ({ children }) => {
         updateText,
         addNote,
         addNoteInGroup,
+        removeEmptyGroups,
       }}
     >
       {children}
