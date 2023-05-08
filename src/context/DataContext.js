@@ -69,8 +69,11 @@ const DataProvider = ({ children }) => {
       }
       return group;
     });
-    console.log(updatedGroupList);
-    setGroupList(updatedGroupList);
+    const filteredGroupList = updatedGroupList.filter(
+      (group) => !(group.group === false && group.notes)
+    );
+
+    setGroupList(filteredGroupList);
   };
 
   // //Preview the Unlinked notes
