@@ -10,7 +10,7 @@ A modified sticky note application
 
 - React Icons - https://react-icons.github.io/react-icons/
 - React Router - https://www.npmjs.com/package/react-router-dom
--
+
 
 ### Prerequisites
 
