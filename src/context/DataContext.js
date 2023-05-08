@@ -69,11 +69,9 @@ const DataProvider = ({ children }) => {
       }
       return group;
     });
-    const filteredGroupList = updatedGroupList.filter(
-      (group) => !(group.group === false && group.notes)
-    );
 
-    setGroupList(filteredGroupList);
+    setGroupList(updatedGroupList);
+    // deleteGroupsNotNeeded(groupid);
   };
 
   // //Preview the Unlinked notes
@@ -93,6 +91,17 @@ const DataProvider = ({ children }) => {
   //       .flat();
   //   }
   // }
+
+  //Deleting unnecessary groups
+  const deleteGroupsNotNeeded = (groupId) => {
+    const updatedGroupList = groupList.filter((group) => {
+      return (
+        group.id !== groupId || group.group === "true" || group.notes.length > 0
+      );
+    });
+
+    setGroupList(updatedGroupList);
+  };
 
   //Update Group Title
   const updateGroupTitle = (groupId, title) => {

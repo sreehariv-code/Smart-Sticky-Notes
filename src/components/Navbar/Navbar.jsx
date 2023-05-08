@@ -58,7 +58,6 @@ const Navbar = () => {
                 htmlFor="my-modal"
                 className="btn"
                 onClick={() => {
-                  console.log("clicked");
                   addNewGroup(groupTitle);
                   setGroupTitle("");
                 }}
