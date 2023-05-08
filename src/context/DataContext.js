@@ -69,8 +69,11 @@ const DataProvider = ({ children }) => {
       }
       return group;
     });
+    const filteredNotes = updatedGroupList.filter(
+      (group) => !(group.group === false && group.notes.length === 0)
+    );
 
-    setGroupList(updatedGroupList);
+    setGroupList(filteredNotes);
     // deleteGroupsNotNeeded(groupid);
   };
 
